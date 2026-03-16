@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Getting Started with Spotlyst</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" href="../icon.png">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --brand: #007AFF;
+      --brand-dark: #0063D1;
+      --brand-light: #E8F2FF;
+      --text-primary: #1C1C1E;
+      --text-secondary: #6E6E73;
+      --bg: #FFFFFF;
+      --bg-subtle: #F9F9FB;
+      --border: #E5E5EA;
+      --success: #34C759;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text-primary);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.7;
+    }
+
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header */
+    header {
+      padding: 40px 0 8px;
+    }
+
+    header a {
+      color: var(--brand);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    header a:hover {
+      text-decoration: underline;
+    }
+
+    /* Page title */
+    .page-title {
+      padding: 24px 0 48px;
+    }
+
+    .page-title h1 {
+      font-size: 34px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+
+    .page-title p {
+      font-size: 17px;
+      color: var(--text-secondary);
+    }
+
+    /* Steps */
+    .step {
+      margin-bottom: 48px;
+    }
+
+    .step-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .step-number {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--brand);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .step-header h2 {
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    .step-body {
+      padding-left: 50px;
+    }
+
+    .step-body p {
+      font-size: 16px;
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+    }
+
+    .step-body a {
+      color: var(--brand);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .step-body a:hover {
+      text-decoration: underline;
+    }
+
+    /* Substeps */
+    .substeps {
+      list-style: none;
+      margin: 16px 0;
+    }
+
+    .substeps li {
+      position: relative;
+      padding: 10px 0 10px 28px;
+      font-size: 15px;
+      color: var(--text-primary);
+      border-left: 2px solid var(--border);
+      margin-left: 4px;
+    }
+
+    .substeps li::before {
+      content: '';
+      position: absolute;
+      left: -5px;
+      top: 16px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--brand);
+    }
+
+    .substeps li:last-child {
+      border-left-color: transparent;
+    }
+
+    .substeps code {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 2px 7px;
+      font-size: 13px;
+      font-family: 'SF Mono', SFMono-Regular, Menlo, Monaco, monospace;
+    }
+
+    /* Inline button link */
+    .link-button {
+      display: inline-block;
+      background: var(--brand);
+      color: #fff !important;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 10px 24px;
+      border-radius: 50px;
+      text-decoration: none !important;
+      margin-top: 4px;
+      transition: background 0.2s;
+    }
+
+    .link-button:hover {
+      background: var(--brand-dark);
+    }
+
+    /* Tip */
+    .tip {
+      background: var(--brand-light);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 48px 0;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .tip-icon {
+      font-size: 20px;
+      flex-shrink: 0;
+      line-height: 1.5;
+    }
+
+    .tip p {
+      font-size: 15px;
+      color: var(--text-primary);
+    }
+
+    .tip strong {
+      font-weight: 600;
+    }
+
+    .tip .note {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-top: 4px;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 40px 24px;
+      border-top: 1px solid var(--border);
+      color: var(--text-secondary);
+      font-size: 14px;
+      margin-top: 16px;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .page-title h1 {
+        font-size: 28px;
+      }
+
+      .step-header h2 {
+        font-size: 19px;
+      }
+
+      .step-body {
+        padding-left: 0;
+      }
+
+      .substeps li {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <header>
+      <a href="/">&larr; Spotlyst</a>
+    </header>
+
+    <div class="page-title">
+      <h1>Getting Started with Spotlyst</h1>
+      <p>Everything you need to set up the app and import your places.</p>
+    </div>
+
+    <!-- Step 1 -->
+    <div class="step">
+      <div class="step-header">
+        <div class="step-number">1</div>
+        <h2>Download from TestFlight</h2>
+      </div>
+      <div class="step-body">
+        <p>Install the Spotlyst beta through Apple's TestFlight app.</p>
+        <a href="#testflight" class="link-button">Open TestFlight Link</a>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="step">
+      <div class="step-header">
+        <div class="step-number">2</div>
+        <h2>Sign in with your email</h2>
+      </div>
+      <div class="step-body">
+        <p>Open Spotlyst and enter your email address. You'll receive a one-time code to sign in — no password needed.</p>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="step">
+      <div class="step-header">
+        <div class="step-number">3</div>
+        <h2>Import your Google Maps places</h2>
+      </div>
+      <div class="step-body">
+        <p>Use our Chrome extension to pull in your saved Google Maps lists.</p>
+        <ul class="substeps">
+          <li><a href="/spotlyst-extension.zip">Download the Chrome extension</a> and unzip it</li>
+          <li>Open Chrome and go to <code>chrome://extensions</code></li>
+          <li>Enable <strong>Developer mode</strong> using the toggle in the top-right corner</li>
+          <li>Click <strong>Load unpacked</strong> and select the unzipped folder</li>
+          <li>Click the Spotlyst extension icon and sign in with the <strong>same email</strong> you used in the app</li>
+          <li>Navigate to one of your <a href="https://www.google.com/maps/yourplaces" target="_blank" rel="noopener">Google Maps saved lists</a></li>
+          <li>Click <strong>Export to Spotlyst</strong> in the extension popup</li>
+          <li>Stay on the page while it scrolls through and exports your places</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="step">
+      <div class="step-header">
+        <div class="step-number">4</div>
+        <h2>Review your import</h2>
+      </div>
+      <div class="step-body">
+        <p>Open the <strong>Import</strong> tab in the app to review the places that were pulled in. You can add tags, assign them to lists, or remove any you don't want before saving.</p>
+      </div>
+    </div>
+
+    <!-- Step 5 -->
+    <div class="step">
+      <div class="step-header">
+        <div class="step-number">5</div>
+        <h2>Explore</h2>
+      </div>
+      <div class="step-body">
+        <p>You're all set. Browse your places on the <strong>Map</strong>, organize them in <strong>Lists</strong>, or head to the <strong>Discover</strong> tab for AI-powered recommendations based on spots you already love.</p>
+      </div>
+    </div>
+
+    <!-- Tip -->
+    <div class="tip">
+      <span class="tip-icon" aria-hidden="true">&#x1F4A1;</span>
+      <div>
+        <p><strong>Shake your phone to send feedback.</strong> Found a bug or have an idea? Just shake your device and a feedback form will pop up.</p>
+        <p class="note">Note: This works in production (TestFlight) builds, not in the simulator.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <span>Made in LA</span>
+  </footer>
+
+</body>
+</html>
